@@ -1,0 +1,2 @@
+module ShihutoHelper
+end
