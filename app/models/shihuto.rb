@@ -1,0 +1,2 @@
+class Shihuto < ApplicationRecord
+end
