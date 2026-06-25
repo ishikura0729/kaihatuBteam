@@ -10,13 +10,3 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_06_25_051607) do
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "login_id"
-    t.integer "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-end
