@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_06_25_054206) do
     t.string "login_id"
     t.string "name"
     t.date "date"
-    t.date "start_time"
-    t.date "end_time"
+    t.time "start_time"
+    t.time "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
