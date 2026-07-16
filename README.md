@@ -27,3 +27,4 @@ ishihara
 oono
 itouyuuki
 joudai
+sou
