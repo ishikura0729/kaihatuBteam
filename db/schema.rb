@@ -21,6 +21,14 @@ ActiveRecord::Schema[7.1].define(version: 2026_07_13_064149) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shihutos", force: :cascade do |t|
+    t.string "login_id"
+    t.string "name"
+    t.date "date"
+    t.date "start_time"
+    t.date "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
-
