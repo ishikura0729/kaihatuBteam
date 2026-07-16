@@ -42,3 +42,11 @@ a:active {
 a:visited {
   color: rgb(186, 10, 10);  /* 訪問済みリンクの色 */
 }
+
+div{
+    text-align: center;
+    
+}
+table{
+    margin: auto;
+}
