@@ -1,3 +1,4 @@
+<div class = "kwbr">
 <%= link_to "新規登録", new_user_path %>
 
 <h1>ユーザー一覧</h1>
@@ -12,8 +13,8 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.name %></td>
-      <td><%= user.login_id %></td>
-      <td><%= user.role == 1 ? "店長" : "従業員" %></td>
+      <td><%= user.respond_to?(:login_id) ? user.login_id : "-" %></td>
+      <td><%= user.respond_to?(:role) && user.role == 1 ? "店長" : "従業員" %></td>
       <td><%= link_to "編集", edit_user_path(user) %></td>
       <td><%= button_to "削除", user_path(user),
           method: :delete,
@@ -25,3 +26,4 @@
     </tr>
   <% end %>
 </table>
+</div>
