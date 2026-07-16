@@ -11,12 +11,25 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2026_07_02_044844) do
+=======
+
+ActiveRecord::Schema[7.1].define(version: 2026_07_13_064149) do
+  create_table "shifts", force: :cascade do |t|
+    t.string "login_id"
+    t.string "name"
+    t.date "work_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    
+ActiveRecord::Schema[7.1].define(version: 2026_07_02_004520) do
   create_table "announcements", force: :cascade do |t|
     t.string "title"
     t.text "content"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
 
   create_table "shift_exchange_requests", force: :cascade do |t|
     t.integer "requester_id"
@@ -27,6 +40,9 @@ ActiveRecord::Schema[7.1].define(version: 2026_07_02_044844) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+
+end
 
   create_table "shift_requests", force: :cascade do |t|
     t.integer "user_id", null: false
