@@ -1,0 +1,38 @@
+<h1>シフト登録</h1>
+
+<% if notice.present? %>
+    <p><%= notice %></p>
+<% end %>
+
+
+<%= form_with(model: @shift) do |form| %>
+    <div>
+        <%= form.label :login_id, "ID", style: "display: block" %>
+        <%= form.text_field :login_id %>
+    </div><br>
+
+    <div>
+        <%= form.label :name, "名前", style: "display: block" %>
+        <%= form.text_field :name %>
+    </div><br>
+
+    <div>
+        <%= form.label :work_date, "日付", style: "display: block" %>
+        <%= form.date_field :work_date %>
+    </div><br>
+
+    <div>
+        <%= form.label :start_time, "出勤時間", style: "display: block" %>
+        <%= form.time_field :start_time %>
+    </div><br>
+
+    <div>
+        <%= form.label :end_time, "退勤時間", style: "display: block" %>
+        <%= form.time_field :end_time %>
+    </div><br>
+
+    <div>
+        <%= form.submit "登録" %>
+    </div>
+
+<% end %>

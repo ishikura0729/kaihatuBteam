@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_06_25_054206) do
+ActiveRecord::Schema[7.1].define(version: 2026_07_13_064149) do
+  create_table "shifts", force: :cascade do |t|
+    t.string "login_id"
+    t.string "name"
+    t.date "work_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shihutos", force: :cascade do |t|
     t.string "login_id"
     t.string "name"
     t.date "date"
-    t.time "start_time"
-    t.time "end_time"
+    t.date "start_time"
+    t.date "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
