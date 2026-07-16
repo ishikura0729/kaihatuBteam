@@ -1,0 +1,22 @@
+<h1>ユーザー登録</h1>
+
+<%= form_with model: @user do |f| %>
+
+  <p>
+    名前<br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    ログインID<br>
+    <%= f.text_field :login_id %>
+  </p>
+
+  <p>
+    権限<br>
+    <%= f.select :role, [["従業員",0], ["店長",1]] %>
+  </p>
+
+  <%= f.submit "登録" %>
+
+<% end %>
