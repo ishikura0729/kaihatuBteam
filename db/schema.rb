@@ -10,6 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema[7.1].define(version: 2026_07_02_044844) do
+
 
 ActiveRecord::Schema[7.1].define(version: 2026_07_13_064149) do
   create_table "shifts", force: :cascade do |t|
@@ -28,14 +30,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_07_02_004520) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "shihutos", force: :cascade do |t|
-    t.string "login_id"
-    t.string "name"
-    t.date "date"
-    t.date "start_time"
-    t.date "end_time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+
+
 
 end
+
