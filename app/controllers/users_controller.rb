@@ -46,10 +46,5 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :login_id, :role)
   end
 
-  def manager_only
-    unless current_user&.role == 1
-      redirect_to announcements_path, alert: "店長のみ利用できます。"
-    end
-  end
   
 end

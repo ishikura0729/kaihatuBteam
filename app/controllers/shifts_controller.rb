@@ -1,4 +1,6 @@
 class ShiftsController < ApplicationController
+
+  before_action :manager_only, except: [:index]
   def index
     @shifts = Shift.all
   end
