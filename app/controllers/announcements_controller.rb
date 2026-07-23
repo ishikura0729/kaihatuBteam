@@ -1,4 +1,5 @@
 class AnnouncementsController < ApplicationController
+    before_action :require_login  
 
   #only: [...]は指定したアクションの前だけ実行する:set_announcementを実行する
   before_action :set_announcement, only: [:show,:edit,:update,:destroy]
