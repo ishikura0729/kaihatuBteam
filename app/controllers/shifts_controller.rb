@@ -1,6 +1,7 @@
 class ShiftsController < ApplicationController
-
-  before_action :manager_only, except: [:index]
+  
+  before_action :manager_only, except: [:index], :require_login  
+  
   def index
     @shifts = Shift.all
   end
@@ -64,7 +65,7 @@ class ShiftsController < ApplicationController
     end
 
     if @shift.save
-      redirect_to new_shift_path, notice: "変更しました"
+      redirect_to shifts_manage_path, notice: "変更しました"
     else
       render :edit
     end
