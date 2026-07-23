@@ -1,21 +1,36 @@
 
 <div class="container">
+    <nav>
+      <ul>
+        <li><%= link_to "シフト閲覧", shifts_path %></li>
+        <%# if current_user.role == 1 %>
+          <li><%= link_to "シフト登録", new_shift_path %></li>
+          <li><%= link_to "シフト編集", shifts_manage_path %></li>
+          <li><%= link_to "ユーザー管理", users_path %>
+        <%# end %>
+      </ul>
+    </nav>
   <div class="header-area">
     <h1 class="page-title">お知らせ一覧</h1>
     <%= link_to '新規登録画面へ', new_announcement_path, class: "btn-primary" %>
+
 
 <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
   <nav>
     <ul>
       <li><%= link_to "シフト閲覧", shifts_path %></li>
-      <li><%= link_to "シフト登録", new_shift_path %></li>
-      <li><a href="#">お知らせ</a></li> 
+      <% if current_user.role == 1 %>
+          <li><%= link_to "シフト登録", new_shift_path %></li>
+          <li><%= link_to "シフト編集" ,shifts_manage_path %></li>
+          <li><%= link_to "ユーザー管理" ,users_path %></li>
+      <% end %>
     </ul>
   </nav>
 
   <div style="display: flex; justify-content: space-between; align-items: center;">
     <h1>お知らせ一覧</h1>
     <%= link_to '新規登録画面へ', new_announcement_path %>
+
 
   </div>
 
@@ -31,11 +46,10 @@
       <p class="card-date"><small>公開日: <%= announcement.created_at.strftime('%Y/%m/%d') %></small></p>
     </div>
 
-    <div style="margin-top: 5px;">
-        <%= link_to '削除', announcement_path(announcement), 
-                    data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, 
-                    style: "color: #e6407d; text-decoration: none; font-size: 14px;" %>
-    </div>
     <hr>
+
+    <%= link_to '削除', announcement_path(announcement), 
+                data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, 
+                style: "color: #e6407d; text-decoration: none; font-size: 14px;" %>
   <% end %>
 </div>
