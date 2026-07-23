@@ -1,13 +1,14 @@
 
 <div class="container">
-      <div class="header-area">
+
+  <div class="header-area">
     <h1 class="page-title">お知らせ一覧</h1>
     <%= link_to '新規登録画面へ', new_announcement_path, class: "btn-primary" %>
-  </div>
 
-  <% if flash[:notice] %>
-    <p style="color: #9bffbf;"><%= flash[:notice] %></p>
-  <% end %>
+    <% if flash[:notice] %>
+      <p style="color: #9bffbf;"><%= flash[:notice] %></p>
+    <% end %>
+  </div>
 
   <hr>
 
