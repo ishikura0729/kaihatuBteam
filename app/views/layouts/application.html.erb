@@ -17,7 +17,7 @@
 
       <% if current_user&.role == 1 %>
         <%= link_to "シフト登録", new_shift_path %>
-        <%= link_to "シフト編集", shifts_path %>
+        <%= link_to "シフト編集", shifts_manage_path %>
         <%= link_to "ユーザー管理", users_path %>
       <% end %>
 

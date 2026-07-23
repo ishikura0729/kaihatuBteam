@@ -62,7 +62,7 @@ class ShiftsController < ApplicationController
     end
 
     if @shift.save
-      redirect_to new_shift_path, notice: "変更しました"
+      redirect_to shifts_manage_path, notice: "変更しました"
     else
       render :edit
     end
