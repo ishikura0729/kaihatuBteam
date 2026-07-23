@@ -1,0 +1,27 @@
+<%= link_to "新規登録", new_user_path %>
+
+<h1>ユーザー一覧</h1>
+
+<table border="1">
+  <tr>
+    <th>名前</th>
+    <th>ログインID</th>
+    <th>役職</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.login_id %></td>
+      <td><%= user.role == 1 ? "店長" : "従業員" %></td>
+      <td><%= link_to "編集", edit_user_path(user) %></td>
+      <td><%= button_to "削除", user_path(user),
+          method: :delete,
+          form: {
+            data: {
+              turbo_confirm: "本当に削除しますか？"
+            }
+          } %></td>
+    </tr>
+  <% end %>
+</table>

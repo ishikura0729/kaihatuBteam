@@ -1,7 +1,22 @@
+
 <div class="container">
   <div class="header-area">
     <h1 class="page-title">お知らせ一覧</h1>
     <%= link_to '新規登録画面へ', new_announcement_path, class: "btn-primary" %>
+
+<div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+  <nav>
+    <ul>
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">シフト登録</a></li>
+      <li><a href="#">お知らせ</a></li> 
+    </ul>
+  </nav>
+
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>お知らせ一覧</h1>
+    <%= link_to '新規登録画面へ', new_announcement_path %>
+
   </div>
 
   <% if flash[:notice] %>
