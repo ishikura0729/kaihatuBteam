@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  get "shifts/manage", to: "shifts#manage"
   resources :shifts
+
 
   resources :users
 
