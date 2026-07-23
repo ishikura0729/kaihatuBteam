@@ -13,7 +13,7 @@
 
   <body>
     <nav>
-      <%= link_to "ホーム", announcements_path %>
+      
 
       <% if current_user&.role == 1 %>
         <%= link_to "シフト登録", new_shift_path %>
