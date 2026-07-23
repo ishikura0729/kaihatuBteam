@@ -1,15 +1,5 @@
 
 <div class="container">
-    <nav>
-      <ul>
-        <li><%= link_to "シフト閲覧", shifts_path %></li>
-        <% if current_user.role == 1 %>
-          <li><%= link_to "シフト登録", new_shift_path %></li>
-          <li><%= link_to "シフト編集", shifts_manage_path %></li>
-          <li><%= link_to "ユーザー管理", users_path %>
-        <% end %>
-      </ul>
-    </nav>
   <div class="header-area">
     <h1 class="page-title">お知らせ一覧</h1>
     <%= link_to '新規登録画面へ', new_announcement_path, class: "btn-primary" %>
@@ -17,6 +7,7 @@
     <% if flash[:notice] %>
       <p style="color: #9bffbf;"><%= flash[:notice] %></p>
     <% end %>
+  </div>
 
   <hr>
 
