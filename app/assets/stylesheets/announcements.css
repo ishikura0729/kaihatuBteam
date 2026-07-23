@@ -1,5 +1,5 @@
 /* 画面全体のデザイン */
-.container {
+div.container {
   max-width: 800px;
   margin: 40px auto;
   padding: 0 20px;
@@ -10,7 +10,7 @@
 
 /*index.html*/
 /* ヘッダー部分（タイトルとボタンを横並びに） */
-.header-area {
+div.header-area {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -48,7 +48,7 @@
 }
 
 /* 1つ1つのお知らせカード */
-.announcement-card {
+div.announcement-card {
   background: white;
   border-radius: 8px;
   padding: 24px;
