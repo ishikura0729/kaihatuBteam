@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :announcements, only: [:index, :show, :new, :create, :edit,:update]
-  root "announcements#index"
+  resources :announcements, only: [:index, :show, :new, :create, :edit,:update,:destroy]
 end
 
