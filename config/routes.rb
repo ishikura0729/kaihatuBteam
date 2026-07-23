@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'sessions#new'
 
   get 'sessions/new'
-
+  delete "logout", to: "sessionsdestroy"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "login" , to: "sessions#new"
