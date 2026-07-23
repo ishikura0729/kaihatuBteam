@@ -1,19 +1,19 @@
-<div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-  <p style="color: green;"><%= flash[:notice] %></p>
+<div class="s-container">
+  <p style="color: #79fda9;"><%= flash[:notice] %></p>
 
-  <h1 style="border-bottom: 2px solid #ccc; padding-bottom: 10px;"><%= @announcement.title %></h1>
+  <h1 class="s-title"><%= @announcement.title %></h1>
   
-  <p style="color: #666;">
-    <small>公開日: <%= @announcement.created_at.strftime('%Y/%m/%d %H:%M') %></small>
-  </p>
+  <div class="s-content">
+    <p style="color: #666;">
+      <small>公開日: <%= @announcement.created_at.strftime('%Y/%m/%d %H:%M') %></small>
+    </p>
 
-  <%# simple_formatを使うと、本文内の改行がそのままブラウザでも改行されます %>
-  <div style="margin-top: 20px; line-height: 1.6; font-size: 16px;">
-    <%= simple_format(@announcement.content) %>
+    <%# simple_formatを使うと、本文内の改行がそのままブラウザでも改行されます %>
+    <div class="s-content-font"><%= @announcement.content %></div>
   </div>
 
   <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
-    <%= link_to '編集する', edit_announcement_path(@announcement), style: "color: #28a745; text-decoration: none; margin-right: 20px;" %>
-    <%= link_to '一覧に戻る', announcements_path, style: "color: #007bff; text-decoration: none;" %>
+    <%= link_to '編集する', edit_announcement_path(@announcement), class: "s-edit-btn" %>
+    <%= link_to '一覧に戻る', announcements_path, class: "s-back-btn" %>
   </div>
 </div>
