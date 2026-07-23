@@ -74,8 +74,15 @@ class ShiftsController < ApplicationController
     redirect_to new_shift_path, notice: "削除しました"
   end
 
+  before_action :manager_only, only: [:new, :create, :edit, :update, :destroy]
   
   private
+
+  def manager_only
+    unless current_user.role == 1
+      redirect_to announcements_path, alert: "店長のみ利用できます"
+    end
+  end
 
   def shift_params
     params.require(:shift).permit(
