@@ -1,0 +1,23 @@
+
+<header>
+  <nav class = "snav">
+    <ul>
+      <li><%= link_to "ホーム", shifts_path %></li>
+      <li><%= link_to "シフト登録", new_shift_path %></li>
+      <li><%= link_to  "お知らせ", announcements_path %></li> 
+    </ul>
+  </nav>
+</header>
+
+<h1>シフトカレンダー</h1>
+
+<div class="calendar-wrapper">
+  <%= month_calendar events: @shifts do |date, shifts| %>
+    <%= date.day %>
+    <% shifts.each do |shift| %>
+      <div>
+        <%= shift.name %> <%= shift.start_time.strftime("%H:%M") %>〜<%= shift.end_time.strftime("%H:%M") %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
