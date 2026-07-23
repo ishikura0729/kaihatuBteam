@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-  get "shifts/manage", to: "shifts#manage"
+
   get "login" , to: "sessions#new"
   post "login",to: "sessions#create"
+
+  get "shifts/manage", to: "shifts#manage"
   resources :users
   resources :shifts
   resources :announcements, only: [:index, :show, :new, :create, :edit, :update, :destroy]
@@ -14,8 +16,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-
-
 
 end
 

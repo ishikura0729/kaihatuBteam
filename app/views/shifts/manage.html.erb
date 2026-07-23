@@ -2,13 +2,28 @@
 <header>
   <nav class = "snav">
     <ul>
-      <li><%= link_to "ホーム", shifts_path %></li>
-      <li><%= link_to "シフト登録", new_shift_path %></li>
+      <li><%= link_to "シフト閲覧", shifts_path %></li>
       <li><%= link_to  "お知らせ", announcements_path %></li> 
+      <% if current_user.role == 1 %>
+          <li><%= link_to "シフト登録", new_shift_path %></li>
+          <li><%= link_to "シフト編集" ,shifts_manage_path %></li>
+          <li><%= link_to "ユーザー管理" ,users_path %></li>
+      <% end %>
     </ul>
   </nav>
 </header>
 
 
 <h1>シフト管理画面</h1>
+
+<div class="calendar-wrapper">
+  <%= month_calendar events: @shifts do |date, shifts| %>
+    <%= date.day %>
+    <% shifts.each do |shift| %>
+      <div>
+        <%= link_to shift.name, edit_shift_path(shift.id) %> <%= shift.start_time.strftime("%H:%M") %>〜<%= shift.end_time.strftime("%H:%M") %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
