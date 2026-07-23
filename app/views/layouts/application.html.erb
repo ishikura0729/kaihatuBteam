@@ -11,6 +11,22 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to "ホーム", announcements_path %>
+
+      <% if current_user&.role == 1 %>
+        <%= link_to "シフト登録", new_shift_path %>
+        <%= link_to "シフト編集", shifts_path %>
+        <%= link_to "ユーザー管理", users_path %>
+      <% end %>
+
+      <%= link_to "シフト閲覧", shifts_path %>
+      <%= link_to "お知らせ", announcements_path %>
+
+      <%= button_to "ログアウト", logout_path, method: :delete %>
+    </nav>
+
+    <hr>
     <%= yield %>
   </body>
 </html>

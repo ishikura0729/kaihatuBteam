@@ -9,6 +9,7 @@
           <li><%= link_to "シフト編集" ,shifts_path %></li>
           <li><%= link_to "ユーザー管理" ,users_path %></li>
       <% end %>
+      <%= button_to "ログアウト", logout_path, method: delete %>
     </ul>
   </nav>
 </header>
