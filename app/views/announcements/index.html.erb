@@ -13,6 +13,25 @@
   <div class="header-area">
     <h1 class="page-title">お知らせ一覧</h1>
     <%= link_to '新規登録画面へ', new_announcement_path, class: "btn-primary" %>
+
+
+<div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+  <nav>
+    <ul>
+      <li><%= link_to "シフト閲覧", shifts_path %></li>
+      <% if current_user.role == 1 %>
+          <li><%= link_to "シフト登録", new_shift_path %></li>
+          <li><%= link_to "シフト編集" ,shifts_manage_path %></li>
+          <li><%= link_to "ユーザー管理" ,users_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>お知らせ一覧</h1>
+    <%= link_to '新規登録画面へ', new_announcement_path %>
+
+
   </div>
 
   <% if flash[:notice] %>
