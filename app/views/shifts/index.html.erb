@@ -2,9 +2,13 @@
 <header>
   <nav class = "snav">
     <ul>
-      <li><%= link_to "ホーム", shifts_path %></li>
-      <li><%= link_to "シフト登録", new_shift_path %></li>
+      <li><%= link_to "シフト閲覧", shifts_path %></li>
       <li><%= link_to  "お知らせ", announcements_path %></li> 
+      <% if current_user.role == 1 %>
+          <li><%= link_to "シフト登録", new_shift_path %></li>
+          <li><%= link_to "シフト編集" ,shifts_path %></li>
+          <li><%= link_to "ユーザー管理" ,users_path %></li>
+      <% end %>
     </ul>
   </nav>
 </header>
