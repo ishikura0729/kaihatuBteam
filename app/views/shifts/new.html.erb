@@ -1,3 +1,14 @@
+
+<header>
+  <nav class = "snav">
+    <ul>
+      <li><%= link_to "ホーム", shifts_path %></li>
+      <li><%= link_to "シフト登録", new_shift_path %></li>
+      <li><%= link_to  "お知らせ", announcements_path %></li> 
+    </ul>
+  </nav>
+</header>
+
 <h1>シフト登録</h1>
 
 <% if notice.present? %>

@@ -13,15 +13,17 @@
   </nav>
 </header>
 
-<h1>シフトカレンダー</h1>
+
+<h1>シフト管理画面</h1>
 
 <div class="calendar-wrapper">
   <%= month_calendar events: @shifts do |date, shifts| %>
     <%= date.day %>
     <% shifts.each do |shift| %>
       <div>
-        <%= shift.name %> <%= shift.start_time.strftime("%H:%M") %>〜<%= shift.end_time.strftime("%H:%M") %>
+        <%= link_to shift.name, edit_shift_path(shift.id) %> <%= shift.start_time.strftime("%H:%M") %>〜<%= shift.end_time.strftime("%H:%M") %>
       </div>
     <% end %>
   <% end %>
 </div>
+
