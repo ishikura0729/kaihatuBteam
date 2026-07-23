@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'sessions#new'
 
   get 'sessions/new'
-  delete "logout", to: "sessionsdestroy"
+  delete "logout", to: "sessions#destroy"
   get "login" , to: "sessions#new"
   post "login",to: "sessions#create"
 
