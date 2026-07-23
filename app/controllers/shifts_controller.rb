@@ -1,4 +1,11 @@
 class ShiftsController < ApplicationController
+  def index
+    @shifts = Shift.all
+  end
+  def show
+    @shift = Shift.find(params[:id])
+  end
+
   def new
     @shift = Shift.new
   end
@@ -20,7 +27,7 @@ class ShiftsController < ApplicationController
     end
 
     if @shift.save
-      redirect_to new_shift_path, notice: "シフト登録しました"
+      redirect_to shifts_path, notice: "シフト登録しました"
     else
       render :new, status: :unprocessable_entity
     end
@@ -49,7 +56,7 @@ class ShiftsController < ApplicationController
       )
     end
 
-    if @shift.save(shift_params)
+    if @shift.save
       redirect_to new_shift_path, notice: "変更しました"
     else
       render :edit
