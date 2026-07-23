@@ -9,20 +9,21 @@
           <li><%= link_to "シフト編集" ,shifts_manage_path %></li>
           <li><%= link_to "ユーザー管理" ,users_path %></li>
       <% end %>
-      <%= button_to "ログアウト", logout_path, method: delete %>
     </ul>
   </nav>
 </header>
 
-<h1>シフトカレンダー</h1>
+
+<h1>シフト管理画面</h1>
 
 <div class="calendar-wrapper">
   <%= month_calendar events: @shifts do |date, shifts| %>
     <%= date.day %>
     <% shifts.each do |shift| %>
       <div>
-        <%= shift.name %> <%= shift.start_time.strftime("%H:%M") %>〜<%= shift.end_time.strftime("%H:%M") %>
+        <%= link_to shift.name, edit_shift_path(shift.id) %> <%= shift.start_time.strftime("%H:%M") %>〜<%= shift.end_time.strftime("%H:%M") %>
       </div>
     <% end %>
   <% end %>
 </div>
+
