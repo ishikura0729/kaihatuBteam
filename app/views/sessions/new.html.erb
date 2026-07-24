@@ -4,7 +4,9 @@
   <p style="color:red;"><%= message %></p>
 <% end %>
 
+
 <%= form_with scope: :session, url: login_path, method: :post do |f| %>
+
 
   <div>
     <%= f.label :login_id, "ログインID" %><br>
