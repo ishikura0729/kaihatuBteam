@@ -63,6 +63,7 @@ table{
   transition: background 0.3s;
 }
 
+/* calender */
 .calendar-wrapper {
   overflow-x: auto;
   width: 100%;
@@ -105,6 +106,14 @@ table{
   margin-right: 0;
 }
 
+.edit_header{
+  display: flex; justify-content: space-between;
+}
+
 .edit-link {
+  color: red;
+}
+
+.delete_button button{
   color: red;
 }

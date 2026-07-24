@@ -83,7 +83,7 @@ class ShiftsController < ApplicationController
   def destroy
     @shift = Shift.find(params[:id])
     @shift.destroy
-    redirect_to new_shift_path, notice: "削除しました"
+    redirect_to edit_shift_path, notice: "削除しました"
   end
 
   before_action :manager_only, only: [:new, :create, :edit, :update, :destroy]
