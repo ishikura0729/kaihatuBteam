@@ -1,7 +1,6 @@
 class ShiftsController < ApplicationController
 
   before_action :require_login
-  before_action :manager_only, except: [:index] 
 
 
   def index
@@ -22,6 +21,10 @@ class ShiftsController < ApplicationController
 
   def create
     @shift = Shift.new(shift_params)
+
+    user = User.find_by(login_id: @shift.login_id)
+    @shift.name = user.name if user
+
 
     if @shift.work_date && @shift.start_time && @shift.end_time
       @shift.start_time = @shift.start_time.change(
@@ -50,8 +53,12 @@ class ShiftsController < ApplicationController
 
   def update
     @shift = Shift.find(params[:id])
+
     @shift.assign_attributes(shift_params)
     #日付変更有り無し関わらず日付を登録データに合わせるために新しい情報を持ってくる
+
+    user = User.find_by(login_id: @shift.login_id)
+    @shift.name = user.name if user
 
         if @shift.work_date && @shift.start_time && @shift.end_time
       @shift.start_time = @shift.start_time.change(
@@ -91,7 +98,7 @@ class ShiftsController < ApplicationController
 
   def shift_params
     params.require(:shift).permit(
-      :login_id, :name, :work_date, :start_time, :end_time
+      :login_id, :work_date, :start_time, :end_time
     )
   end
 

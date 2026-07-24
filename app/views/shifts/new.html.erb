@@ -8,13 +8,7 @@
 
 <%= form_with(model: @shift) do |form| %>
     <div>
-        <%= form.label :login_id, "ID", style: "display: block" %>
-        <%= form.text_field :login_id %>
-    </div><br>
-
-    <div>
-        <%= form.label :name, "名前", style: "display: block" %>
-        <%= form.text_field :name %>
+        <%= form.collection_select :login_id,  User.all, :login_id, :name, style: "display: block" %>
     </div><br>
 
     <div>
