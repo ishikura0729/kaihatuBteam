@@ -2,19 +2,19 @@ class SessionsController < ApplicationController
   def new
   end
 
-def create
-  login_id = params[:session][:login_id].to_s.strip
+  def create
+    login_id = params[:login_id].to_s.strip
 
-  user = User.find_by(login_id: login_id)
+    user = User.find_by(login_id: login_id)
 
-  if user.present?
-    session[:user_id] = user.id
-    redirect_to shifts_path
-  else
-    flash.now[:alert] = "ログインIDが間違っています"
-    render :new
+    if user.present?
+      session[:user_id] = user.id
+      redirect_to shifts_path
+    else
+      flash.now[:alert] = "ログインIDが間違っています"
+      render :new
+    end
   end
-end
 
   def destroy
     session[:user_id] = nil
