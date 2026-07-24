@@ -1,5 +1,11 @@
-<h1>シフト編集</h1>
+<div class = "edit_header">
+    <h1>シフト編集</h1>
+    <div class = "delete_button">
+        <%= button_to "削除", shift_path(@shift), method: :delete,  data: { turbo_confirm: "本当に削除しますか?" } %>
+    </div>
+</div>
 
+</div>
 
 <% if notice.present? %>
     <p><%= notice %></p>

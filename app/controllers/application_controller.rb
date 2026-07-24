@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   end
 
 
+  rescue_from ActiveRecord::RecordNotFound do
+    redirect_to shifts_manage_path, alert: "このシフトは既に削除されています"
+  end
+
   private
 
 
@@ -20,7 +24,6 @@ class ApplicationController < ActionController::Base
             redirect_to announcements_path, alert: "権限がありません。"
         end
     end
-
 end
 
  
