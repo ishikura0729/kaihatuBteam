@@ -28,23 +28,6 @@ li {
   list-style: none; 
 }
 
-/* a {
-  display: block;
-  text-decoration: none;
-  margin-right: 35px;
-}
-a:hover {
-  color: rgba(23, 23, 255, 0.628);  
-}
-
-a:active {
-  color: #841e96;  
-}
-
-a:visited {
-  color: rgb(186, 10, 10);  
-} */
-
 div{
     text-align: center;
     
@@ -93,4 +76,8 @@ table{
 .calendar-heading nav a {
   display: inline;
   margin-right: 0;
+}
+
+.edit-link {
+  color: red;
 }

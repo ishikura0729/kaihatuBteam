@@ -1,7 +1,7 @@
 class ShiftsController < ApplicationController
   
   before_action :require_login
-  before_action :manager_only, except: [:index]  
+  before_action :manager_only, except: [:index] 
 
   def index
     @shifts = Shift.all
