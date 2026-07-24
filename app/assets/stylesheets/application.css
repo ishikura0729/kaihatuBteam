@@ -23,6 +23,8 @@ nav {
 }
 ul {
   display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 li {
   list-style: none; 
@@ -34,6 +36,31 @@ div{
 }
 table{
     margin: auto;
+}
+
+.move-btn{
+  color: #50c992; 
+  font-weight: bold;
+  display: inline-block;
+  padding: 2px 10px;          
+  border: 2px solid #ffffff;  
+  border-radius: 40px;         
+  text-decoration: none;     
+}
+
+.move-btn:visited{
+  color: #50c992; 
+  text-decoration: none; 
+}
+
+.logout-btn{
+   display: inline-block;
+  padding: 2px 10px;       
+  background-color: #80d6c9;
+  color: #ffffff !important;
+  text-decoration: none;    
+  border-radius: 40px;       
+  transition: background 0.3s;
 }
 
 .calendar-wrapper {
