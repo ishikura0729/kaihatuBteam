@@ -1,20 +1,16 @@
-<div class = "edit_header">
+<div class="edit_header">
     <h1>シフト編集</h1>
-    <div class = "delete_button">
+    <div class="delete_button">
         <%= button_to "削除", shift_path(@shift), method: :delete,  data: { turbo_confirm: "本当に削除しますか?" } %>
     </div>
 </div>
 
-</div>
-
-<% if notice.present? %>
-    <p><%= notice %></p>
-<% end %>
 
 
 <%= form_with(model: @shift) do |form| %>
     <div>
-        <%= form.collection_select :login_id,  User.all, :login_id, :name, style: "display: block" %>
+        <%= form.label :login_id, "ログインID", style: "display: block" %>
+        <%= form.collection_select :login_id,  User.all, :login_id, :name, {}, style: "display: block" %>
     </div><br>
 
     <div>
