@@ -2,7 +2,6 @@ class ShiftsController < ApplicationController
 
   before_action :require_login
 
-
   def index
     @shifts = Shift.all
   end
@@ -60,7 +59,7 @@ class ShiftsController < ApplicationController
     user = User.find_by(login_id: @shift.login_id)
     @shift.name = user.name if user
 
-        if @shift.work_date && @shift.start_time && @shift.end_time
+      if @shift.work_date && @shift.start_time && @shift.end_time
       @shift.start_time = @shift.start_time.change(
         year: @shift.work_date.year, 
         month: @shift.work_date.month, 
@@ -76,23 +75,23 @@ class ShiftsController < ApplicationController
     if @shift.save
       redirect_to shifts_manage_path, notice: "変更しました"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @shift = Shift.find(params[:id])
     @shift.destroy
-    redirect_to edit_shift_path, notice: "削除しました"
+    redirect_to shifts_manage_path, notice: "削除しました"
   end
 
-  before_action :manager_only, only: [:new, :create, :edit, :update, :destroy]
+  before_action :manager_only, only: [:new, :create, :manage, :edit, :update, :destroy]
   
   private
 
   def manager_only
     unless current_user.role == 1
-      redirect_to announcements_path, alert: "店長のみ利用できます"
+      redirect_to shifts_path, alert: "店長のみ利用できます"
     end
   end
 
