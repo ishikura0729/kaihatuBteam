@@ -12,22 +12,23 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <% if current_user&.role == 1 %>
-          <%= link_to "シフト登録", new_shift_path, class: "move-btn" %>
-          <%= link_to "シフト編集", shifts_manage_path, class: "move-btn" %>
-          <%= link_to "ユーザー管理", users_path, class: "move-btn" %>
-        <% end %>
+    <% if current_user %>
+      <nav>
+        <ul>
+          <% if current_user&.role == 1 %>
+            <%= link_to "シフト登録", new_shift_path, class: "move-btn" %>
+            <%= link_to "シフト編集", shifts_manage_path, class: "move-btn" %>
+            <%= link_to "ユーザー管理", users_path, class: "move-btn" %>
+          <% end %>
 
-        <%= link_to "シフト閲覧", shifts_path, class: "move-btn" %>
-        <%= link_to "お知らせ", announcements_path, class: "move-btn" %>
+          <%= link_to "シフト閲覧", shifts_path, class: "move-btn" %>
+          <%= link_to "お知らせ", announcements_path, class: "move-btn" %>
 
-        <%= button_to "ログアウト", logout_path, method: :delete, class: "logout-btn" %>
-      </ul>
-    </nav>
-
-    <hr>
+          <%= button_to "ログアウト", logout_path, method: :delete, class: "logout-btn" %>
+        </ul>
+      </nav>
+      <hr>
+    <% end %>
     <% flash.each do |key, message| %>
       <p class="flash flash-<%= key %>"><%= message %></p>
     <% end %>
